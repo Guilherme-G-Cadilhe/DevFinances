@@ -24,7 +24,6 @@
    * Autor
    * Known Bugs
      * Botão da Landing Page as vezes não clica
-     * Página de Finanças com Menu bugado no modo Celular ( Consertando )
 <!--te-->
 
 <h1 align="center" >
@@ -110,6 +109,4 @@ Feito com 💜 e dedicação por mim **Guilherme G Cadilhe** Aka: **Bobnini**. <
 <h3>Known Bugs</h3>
 
 * As vezes ao clicar no botão "Experimente" na Landing Page, em vez de ser direcionado, aparece uma borda quadrada preta no botão, mas que depois que clicado novamente, te direciona normalmente a Página de Finanças
-
-* Após eu fazer um menu na Página de Finanças para harmonizar os sites, esqueci de fazer para a versão Mobile do mesmo, coisa que já estou corrigindo.
 
