@@ -6,6 +6,8 @@
 <img width="700" src="https://i.imgur.com/TCD0NvC.png">
 </p>
 
+---
+
 <!--ts-->
    * Sobre
    * Features
