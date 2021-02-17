@@ -1,9 +1,10 @@
 <h1 align="Center">Dev.Finance$</h1>
 
 ---
-
-<img width="500" src="https://i.imgur.com/27TpJr6.png">
-<img width="500" src="https://i.imgur.com/TCD0NvC.png">
+<p align="center">
+<img width="700" src="https://i.imgur.com/27TpJr6.png">
+<img width="700" src="https://i.imgur.com/TCD0NvC.png">
+</p>
 
 <!--ts-->
    * Sobre
