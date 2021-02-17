@@ -1,0 +1,204 @@
+// Colors
+$darkBlue: hsl(233, 26%, 24%);
+$limeGreen: hsl(136, 65%, 51%);
+$brightCyan: hsl(192, 70%, 51%);
+
+$grayishBlue: hsl(233, 8%, 62%);
+$lightGrayishBlue: hsl(220, 16%, 96%);
+$veryLightGray: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+//Font Sizes
+
+$font-small: 0.9375rem; // 15px
+$font-med: 1.125rem; // 18px
+$font-lg: 1.25rem; // 20px
+$font-xlg: 3.25rem; // 52px
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+body {
+  font-family: "Public Sans", sans-serif;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+  line-height: 1.3;
+  font-size: $font-small;
+  color: $grayishBlue;
+
+  overflow-x: hidden;
+
+  @include breakpoint-up(large) {
+    font-size: $font-lg;
+  }
+
+  &.noscroll {
+    overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  line-height: 1.15;
+  color: $darkBlue;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.31rem;
+  margin-bottom: 1.5rem;
+
+  @include breakpoint-up(large) {
+    font-size: $font-xlg;
+  }
+}
+
+h2 {
+  font-size: 1.875rem;
+  margin-bottom: 1.5625rem;
+
+  @include breakpoint-up(large) {
+    font-size: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+//Spacing
+.container {
+  max-width: 69.375rem;
+  margin: 0 auto;
+
+  &--pall {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  &--px {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  &--py {
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  &--pt {
+    padding-top: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+    }
+  }
+  &--pr {
+    padding-right: 1.5rem;
+  }
+  &--pb {
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-bottom: 6rem;
+    }
+  }
+  &--pl {
+    padding-left: 1.5rem;
+  }
+}
+//Flexbox
+
+.flex {
+  display: flex;
+
+  &-js-sb {
+    justify-content: space-between;
+  }
+  &-js-c {
+    justify-content: center;
+  }
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+//Buttons
+button,
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 0.875rem 2.1875rem;
+  background: linear-gradient(to right, $limeGreen, $brightCyan);
+  border: 0px;
+  border-radius: 50px;
+  cursor: pointer;
+  color: $white;
+  font-weight: bold;
+  opacity: 0.85;
+}
+
+.button:hover {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+.button a {
+  color: $white;
+  font-weight: bold;
+}
+
+// Visibility
+
+.hide-for-mobile {
+  //hide for tablet and mobile
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  //hide for desktop viewport widths
+  @include breakpoint-up(large) {
+    display: none;
+  }
+}

@@ -1,0 +1,426 @@
+/*Light colors*/
+html {
+  --bg: hsl(220, 16%, 96%);
+  --h2: #363f5f;
+  --header: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
+  --bg-panel: white;
+  --card-links: #49aa26;
+  --hover: #3dd705;
+  --expenses: #e92929;
+  --incomes: #12a454;
+  --other-text: #969cb3;
+  --brightCyan: hsl(192, 70%, 51%);
+  --limeGreen: hsl(136, 65%, 51%);
+}
+
+/*Dark mode color*/
+
+html[data-theme="dark"] {
+  --bg: #202124;
+  --h2: #fff;
+  --header: linear-gradient(to right, #7e8ce0, #4acfac);
+  --bg-panel: #353b47;
+  --card-links: #4acfac;
+  --hover: #3dd705;
+  --expenses: #e65151;
+  --incomes: #12a454;
+  --other-text: #fff;
+}
+html[data-theme="dark"] .card.total {
+  color: #262833;
+}
+html[data-theme="dark"] header img {
+  filter: invert(1);
+}
+html[data-theme="dark"] .card.total img {
+  filter: invert(1);
+}
+html[data-theme="dark"] .modal {
+  background-color: #353b47;
+  opacity: 0.9;
+}
+
+html[data-theme="dark"] .button.cancel {
+  background-color: #e92929;
+  color: #fff;
+  border: none;
+}
+
+html[data-theme="dark"] .input-group small {
+  opacity: 1;
+  color: #fff;
+}
+
+/* DARK MODE Toogle*/
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.toggle-dark label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 52px;
+  height: 27px;
+  background: #49aa26;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  border: 1px solid #262833;
+}
+
+.toggle-dark label:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+.toggle-dark input:checked + label {
+  background: #aa5bd7;
+}
+
+.toggle-dark input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+.toggle-dark label:active:after {
+  width: 45px;
+}
+
+/*RESET =======================================*/
+* {
+  font-family: "Poppins", sans-serif;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+body {
+  background-color: var(--bg);
+}
+
+html {
+  font-size: 93.75%;
+}
+
+/* ScreenReader  ==============================*/
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0px;
+}
+
+/* Titles ========================================*/
+h2 {
+  margin-top: 3.2rem;
+  margin-bottom: 0.6rem;
+  color: var(--h2);
+  font-weight: normal;
+}
+
+/* Header ========================================*/
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--header);
+  padding: 0 0 10rem 0;
+}
+
+.header_menu {
+  width: 65%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: linear-gradient(
+    to left,
+    hsl(136, 65%, 51%),
+    hsl(192, 70%, 51%)
+  );
+}
+
+.header_links a {
+  font-weight: 500;
+  opacity: 1;
+  font-size: 1.3rem;
+  color: hsl(220, 16%, 96%);
+  margin-right: 32px;
+}
+
+.header_links a:hover {
+  color: hsl(233, 26%, 24%);
+  opacity: 0.9;
+}
+
+/* Container ========================================*/
+
+.container {
+  width: min(90vw, 800px);
+  margin: auto;
+}
+
+/* Balance ========================================*/
+
+#balance {
+  margin-top: -6rem;
+}
+#balance h2 {
+  color: var(--bg-panel);
+  margin-top: 0;
+}
+
+/* Cards ========================================*/
+.card {
+  background: var(--bg-panel);
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
+  color: var(--h2);
+}
+.card h3 {
+  font-weight: normal;
+  font-size: 1.1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card p {
+  line-height: 3rem;
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.card.total {
+  background: var(--card-links);
+  color: var(--bg-panel);
+}
+
+/* Buttons & Links ===========================*/
+a {
+  color: var(--card-links);
+  opacity: 80%;
+}
+
+a:hover {
+  opacity: 100%;
+  color: var(--hover);
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  border: none;
+
+  color: var(--bg-panel);
+  background-color: var(--card-links);
+
+  padding: 0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--hover);
+}
+
+.button.new {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.button.cancel {
+  color: var(--expenses);
+  border: 2px var(--expenses) solid;
+  border-radius: 0.25rem;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+.button.cancel:hover {
+  opacity: 1;
+}
+
+/* Transactions ============================*/
+#transaction {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Table =====================================*/
+
+#data-table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  color: var(--other-text);
+}
+
+table thead tr th:first-child,
+table thead tr td:first-child {
+  border-radius: 0.45rem 0 0 0.45rem;
+}
+
+table thead tr th:last-child,
+table thead tr td:last-child {
+  border-radius: 0 0.45rem 0.45rem 0;
+}
+
+table thead th {
+  background: var(--bg-panel);
+  padding: 1rem 2rem;
+  text-align: left;
+  font-weight: normal;
+}
+
+table tbody tr {
+  opacity: 0.7;
+}
+
+table tbody tr:hover {
+  opacity: 1;
+}
+
+table tbody td {
+  background: var(--bg-panel);
+  padding: 1rem 2rem;
+  font-weight: normal;
+}
+
+td.empresa {
+  color: var(--h2);
+}
+td.description {
+  color: var(--h2);
+}
+td.income {
+  color: var(--incomes);
+}
+td.expense {
+  color: var(--expenses);
+}
+
+/* Modal ====================================*/
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: var(--bg);
+  padding: 2.4rem;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* Form ========================================*/
+#form {
+  max-width: 500px;
+}
+#form h2 {
+  margin-top: 0;
+}
+input {
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.input-group {
+  margin-top: 0.8rem;
+}
+
+.input-group small {
+  opacity: 0.5;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+  width: 48%;
+}
+
+/* Footer ========================================*/
+footer {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  color: var(--h2);
+  opacity: 0.7;
+}
+
+/* Responsivo =============================*/
+@media (min-width: 800px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  #balance {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}

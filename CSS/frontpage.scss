@@ -1,0 +1,476 @@
+@import "mixins";
+@import "animations";
+@import "globalEVariables";
+
+//HEADER ------------------------------>
+
+.header {
+  position: relative;
+  z-index: 1;
+  //Hamburguer Open Styles
+  &.open {
+    .header_menu {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .overlay {
+    opacity: 0;
+    position: fixed;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient($darkBlue, transparent);
+  }
+
+  nav {
+    position: relative;
+    background-color: $white;
+    padding-top: 1.0625rem;
+    padding-bottom: 1rem;
+  }
+
+  &_menu {
+    // Mobile menu
+
+    > span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background-color: $darkBlue;
+      transition: all 300ms ease-in-out;
+      transform-origin: 1.5px 1px;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &_toggled {
+    position: absolute;
+    width: calc(100% - 3rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: $white;
+    margin-top: 1.8rem;
+    padding: 1.625rem;
+    border-radius: 3px;
+
+    a {
+      display: block;
+      text-align: center;
+      color: $darkBlue;
+      padding: 0.625rem;
+    }
+  }
+
+  &_links {
+    a {
+      position: relative;
+      font-size: $font-small;
+      color: $grayishBlue;
+      transition: color 300ms ease-in-out;
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 5px;
+        left: 0;
+        right: 0;
+        bottom: -30px;
+        background: linear-gradient(to right, $limeGreen, $brightCyan);
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+      &:hover {
+        color: $darkBlue;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+//  HERO ------------------------------>
+
+.hero {
+  background-color: $veryLightGray;
+
+  .container {
+    @include breakpoint-up(large) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &_image {
+    position: relative;
+    background-image: url("/imagens/bg-intro-mobile.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 59%;
+    height: 18.7rem;
+
+    @include breakpoint-up(medium) {
+      min-height: 25rem;
+      background-position: center 70%;
+    }
+
+    @include breakpoint-up(large) {
+      flex: 3;
+      order: 2;
+      min-height: 41rem;
+      background-image: none;
+    }
+
+    &::after {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      background-image: url("/imagens/image-mockups.png");
+      background-size: 83%;
+      background-repeat: no-repeat;
+      background-position: center 92%;
+
+      @include breakpoint-up(medium) {
+        background-size: 52%;
+      }
+
+      @include breakpoint-up(large) {
+        height: 120%;
+        width: 122%;
+        background-size: 94%;
+        background-position: center 125%;
+        left: 20%;
+      }
+    }
+
+    &::before {
+      @include breakpoint-up(large) {
+        content: "";
+        height: 100%;
+        position: absolute;
+        background-image: url("/imagens/bg-intro-desktop.svg");
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        width: 150%;
+        background-size: 122%;
+        background-position: 0% 83%;
+      }
+    }
+  }
+
+  &_text {
+    text-align: center;
+
+    @include breakpoint-up(large) {
+      flex: 2;
+      order: 1;
+      text-align: left;
+    }
+  }
+}
+
+// COLUMN FEATURES ------------------------------>
+
+.feature {
+  .financeVerde {
+    color: #49aa26;
+  }
+  background-color: $lightGrayishBlue;
+  text-align: center;
+
+  @include breakpoint-up(medium) {
+    text-align: left;
+  }
+  &_content {
+    max-width: 69.375rem;
+    margin: 0 auto;
+
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  &_intro {
+    margin-bottom: 3.5rem;
+
+    @include breakpoint-up(large) {
+      width: 65%;
+    }
+  }
+  &_grid {
+    @include breakpoint-up(medium) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  &_item {
+    padding: 0.9375rem;
+
+    @include breakpoint-up(medium) {
+      flex: 1 0 50%;
+    }
+    @include breakpoint-up(large) {
+      flex: 1;
+    }
+  }
+  &_icon {
+    @include breakpoint-down(small) {
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    margin-bottom: 1.875rem;
+
+    @include breakpoint-up(large) {
+      margin-bottom: 2.3rem;
+    }
+  }
+
+  &_title {
+    font-weight: 300;
+    line-height: 1.15;
+    color: $darkBlue;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+
+    @include breakpoint-up(large) {
+      font-size: 1.55rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  &_description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    @include breakpoint-up(large) {
+      font-size: 1rem;
+    }
+  }
+}
+
+// ARTICLES------------------------------>
+
+.articles {
+  background-color: $veryLightGray;
+}
+
+.article {
+  &_grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.875rem;
+
+    @include breakpoint-up(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint-up(large) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &_item {
+    background-color: $white;
+    border-radius: 0.3125rem;
+    overflow: hidden;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+
+    transition: all 150ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &_image {
+    height: 12.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &_text {
+    color: $grayishBlue;
+    padding: 1.87rem 1.87rem 2.5rem 1.87rem;
+
+    @include breakpoint-up(medium) {
+      padding: 1.87rem 1.5625rem;
+    }
+  }
+
+  &_author {
+    font-size: 0.625rem;
+    margin-bottom: 0.7rem;
+  }
+  &_title {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    color: $darkBlue;
+    font-size: 1.0625;
+  }
+
+  &_description {
+    font-size: 0.81rem;
+  }
+}
+
+// FOOTER------------------------------>
+
+.footer {
+  background-color: $darkBlue;
+  color: $white;
+  padding: 2.5rem;
+  text-align: center;
+
+  .container {
+    @include breakpoint-up(large) {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 3fr;
+      grid-template-rows: 1fr auto;
+      grid-template-areas:
+        "logo links1 links2 cta"
+        "social links1 links2 copy";
+      gap: 1rem;
+      justify-items: start;
+    }
+  }
+
+  a {
+    color: $white;
+  }
+
+  @include breakpoint-down(small) {
+    img {
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &_logo {
+    display: inline-block;
+
+    @include breakpoint-down(medium) {
+      margin-bottom: 1.875rem;
+    }
+
+    @include breakpoint-up(large) {
+      grid-area: logo;
+    }
+  }
+  &_social {
+    @include breakpoint-down(medium) {
+      margin-bottom: 1.875rem;
+    }
+
+    @include breakpoint-up(large) {
+      grid-area: social;
+      align-self: end;
+    }
+
+    a {
+      display: inline-block;
+      height: 1.25rem;
+
+      svg path {
+        transition: fill 150ms ease-in-out;
+      }
+
+      &:hover svg path {
+        fill: $limeGreen;
+      }
+    }
+
+    a:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+  &_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 0.9375rem;
+    line-height: 2.25;
+
+    @include breakpoint-up(large) {
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    &.col1 {
+      @include breakpoint-up(large) {
+        grid-area: links1;
+      }
+    }
+
+    &.col2 {
+      @include breakpoint-down(medium) {
+        margin-bottom: 1.875rem;
+      }
+
+      @include breakpoint-up(large) {
+        grid-area: links2;
+      }
+    }
+    a {
+      transition: color 150ms ease-in-out;
+      &:hover {
+        color: $limeGreen;
+      }
+    }
+  }
+
+  &_cta {
+    .button {
+      @include breakpoint-down(medium) {
+        margin-bottom: 1.875rem;
+      }
+    }
+
+    @include breakpoint-up(large) {
+      grid-area: cta;
+      text-align: right;
+      justify-self: end;
+    }
+  }
+
+  &_copyright {
+    font-size: 0.8125rem;
+    color: $grayishBlue;
+
+    @include breakpoint-up(large) {
+      grid-area: copy;
+      justify-self: end;
+      align-self: end;
+    }
+  }
+}
