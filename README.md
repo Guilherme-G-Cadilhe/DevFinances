@@ -8,6 +8,8 @@
 
 ---
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/19a61fce-8d7a-483e-9893-eb192deabd72/deploy-status)](https://app.netlify.com/sites/devfinances-bobnini/deploys)
+
 <!--ts-->
    * Sobre
    * Features
