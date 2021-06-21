@@ -35,7 +35,7 @@
 <h2 align="center">Sobre</h2>
 
 O dev.finances é uma aplicação de controle financeiro, onde é possível cadastrar e excluir transações e ver o saldo de entrada e saída.</br>
-Projeto para administração financeira pessoal, desenvolvido durante a **Maratona Discover** pelo **Mayk Brito** da **Rocket Seat**.<br>
+Projeto para administração financeira pessoal, desenvolvido durante a **Maratona Discover** com o professor **Mayk Brito** da **Rocket Seat**.<br>
 Em conjunto com o Projeto do canal **Coder coder** para criar uma Landing Page **Completa e Profissional** para a empresa fictícia Dev.Finances
 
 
